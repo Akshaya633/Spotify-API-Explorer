@@ -1,0 +1,284 @@
+{
+  "info": {
+    "_postman_id": "5cfcece0-540e-421b-a86d-9ebcd4ebf884",
+    "name": "Spotify",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54621168"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e664d1a855e9484fb1b5aab4b1e0e0fa",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "8f0cd3e7dd10421d87f5b867a0a1b1a3",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "basic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text",
+              "uuid": "8c022515-9c0b-463a-85dc-fa61f39467e4"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://accounts.spotify.com/api/token",
+          "protocol": "https",
+          "host": [
+            "accounts",
+            "spotify",
+            "com"
+          ],
+          "path": [
+            "api",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://api.spotify.com/v1/search",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let data = pm.response.json();",
+              "",
+              "pm.environment.set(\"token\", data.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BQBvtsL20meZVGJtP-Hn5t0imrL-oNZZ0PkkTZ0XQaOG9Tao94es835K6jDItUJaLZav1mR9LtOnUNsYPUGR9QjVozcej8XFG23oLnTgNW9TpdHVh5ulS0dTHiIZOHDvdiSTEMBF9FE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.spotify.com/v1/search?q=Taylor%20Swift&type=artist",
+          "protocol": "https",
+          "host": [
+            "api",
+            "spotify",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Taylor%20Swift"
+            },
+            {
+              "key": "type",
+              "value": "artist"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://accounts.spotify.com/api/token",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e664d1a855e9484fb1b5aab4b1e0e0fa",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "8f0cd3e7dd10421d87f5b867a0a1b1a3",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "basic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text",
+              "uuid": "eb0ff263-1fc1-4a10-8b78-c1cc250337d9"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://accounts.spotify.com/api/token",
+          "protocol": "https",
+          "host": [
+            "accounts",
+            "spotify",
+            "com"
+          ],
+          "path": [
+            "api",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add to Playlist",
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            },
+            {
+              "key": "grant_type",
+              "value": "authorization_code",
+              "type": "string"
+            },
+            {
+              "key": "client_authentication",
+              "value": "header",
+              "type": "string"
+            },
+            {
+              "key": "authUrl",
+              "value": "https://accounts.spotify.com/authorize",
+              "type": "string"
+            },
+            {
+              "key": "clientId",
+              "value": "278a6a0526f142009923f96e2d677256",
+              "type": "string"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://accounts.spotify.com/api/token",
+              "type": "string"
+            },
+            {
+              "key": "tokenName",
+              "value": "Spotify API",
+              "type": "string"
+            },
+            {
+              "key": "useBrowser",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "key": "accessToken",
+              "value": "BQDonwHzePsckf6f1m3o1Q2ZNOjWX2snl9ed5jMa_5MFaBOiLbE5lNoYUx429aIPt0Q2gDP4pDSAKK59LhH9vayR1pSVBdb3N94jEtrf1GqASEURQXZ6slicq0_XaKx89Co-RIq-YfRYy3uuwpR0psolO1EP7c7ZMh9oCa8sMYnkM_buIcwan64FBxnZoV9X0V8ZnWivQAYP0tdwvtB-wUW_ggVx8GmjZzjRmJJZ9PN-H9KQKxe8wac",
+              "type": "string"
+            },
+            {
+              "key": "tokenType",
+              "value": "Bearer",
+              "type": "string"
+            },
+            {
+              "key": "expires_in",
+              "value": 3600,
+              "type": "number"
+            },
+            {
+              "key": "refresh_token",
+              "value": "AQD3r6gSx4_sL2bEdoWGS-xo8pyTvtKUgWxzZmtWsj_SCAGckSsgCEfi_D2EphOAjnsjYLIajfKYvWMVTr4ATzTRFLjVG7SuhAaJ57-Ggcs1YvYV_pHVZeWd3NPVAcZtGdc",
+              "type": "string"
+            },
+            {
+              "key": "createdAt",
+              "value": "2026-05-11T13:29:46.611Z",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.spotify.com/v1/users/{{userId}}/playlists",
+          "protocol": "https",
+          "host": [
+            "api",
+            "spotify",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "users",
+            "{{userId}}",
+            "playlists"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
